@@ -1,0 +1,53 @@
+{% extends 'base_front.html.twig' %}
+ {% block body %}
+ <div id="features-wrapper">
+         <div class="container">
+                 <div class="row">
+                        {% for voiture in voitures %}
+                                 <div class="col-4 col-12-medium">
+
+                                         <!-- Box -->
+                                         <section class="box feature">
+
+                                                 <!-- Swiper -->
+                                                 <div class="swiper-container">
+                                                     <div class="swiper-wrapper">
+                                                         {% for image in voiture.images %}
+                                                         <div class="swiper-slide">
+                                                             <img  src="/uploads/photos/{{ image.id }}.{{ image.extension }}" alt="" />
+                                                         </div>
+                                                         {% endfor %}
+                                                     </div>
+                                                     <!-- Add Pagination -->
+                                                     <div class="swiper-pagination"></div>
+                                                 </div>
+
+                                                 <div class="inner">
+                                                         <header>
+                                                                 <h2>{{ voiture.marque.label }}</h2>
+                                                                 <p>{{ voiture.modele.label }}</p>
+                                                         </header>
+                                                         <p>Prix : {{ voiture.prix }}</p>
+                                                         <p>Année : {{ voiture.dateCirculation|date('m/d/Y') }}</p>
+                                                         <p>Kilometrage : {{ voiture.kilometrage }}km</p>
+
+                                                 </div>
+                                         </section>
+
+                                 </div>
+                        {% endfor %}
+                 </div>
+         </div>
+ </div>
+
+{% block javascripts %}
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+{% endblock %}
+
+{% endblock %}

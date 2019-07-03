@@ -9,6 +9,8 @@ parameters:
 services:
     # default configuration for services in *this* file
     _defaults:
+        bind:
+            $projectDir: '%kernel.project_dir%'
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
@@ -26,3 +28,14 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.form.type.voiture:
+        class: App\Form\Type\VoitureType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type }
+
+    app.form_subscribers:
+        class: App\Form\EventListener\VoitureAddListener
+        tags:
+            - { name: kernel.event_subscriber }

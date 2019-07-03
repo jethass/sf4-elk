@@ -1,0 +1,33 @@
+{% extends 'base_front.html.twig' %}
+ {% block body %}
+ <div id="features-wrapper">
+         <div class="container">
+                 <div class="row">
+                                 <div class="col-12 col-12-medium">
+                                         <!-- Box -->
+                                         <section class="box feature">
+                                                 <img  src="/images/{{ voiture.image.url }}.{{ voiture.image.extension }}" alt="" />
+                                                 <div class="inner">
+                                                         <header>
+                                                                 <h2>{{ voiture.marque.label }}</h2>
+                                                                 <p>{{ voiture.modele.label }}</p>
+                                                         </header>
+                                                         <div style="padding-left:30px;">
+                                                                 <p>Prix : {{ voiture.prix }}</p>
+                                                                 <p>Année : {{ voiture.anne }}</p>
+                                                                 <p>Kilometrage : {{ voiture.kilometrage }}km</p>
+                                                                 <p>Boite Vitesse : {{ voiture.boiteVitesse }}</p>
+                                                                 <p>Nombre de porte : {{ voiture.nombreDePorte }}</p>
+                                                                 <p>Puissance fiscal: {{ voiture.puissanceFiscal }}</p>
+                                                                 <p>Couleur : {{ voiture.couleur }}</p>
+                                                                 <p>Première main : {% if voiture.premiereMain == 1 %} Oui {% else %} Non {% endif %}</p>
+                                                         </div>
+
+
+                                                 </div>
+                                         </section>
+                                 </div>
+                 </div>
+         </div>
+ </div>
+ {% endblock %}

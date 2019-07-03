@@ -1,0 +1,37 @@
+{% extends 'base_admin.html.twig' %}
+ {% block body %}
+
+     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+         <h1 class="h3 mb-0 text-gray-800">Liste des Modeles</h1>
+     </div>
+
+     <div class="card shadow mb-4">
+         <div class="card-body">
+             <div class="table-responsive">
+                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                     <thead>
+                     <tr>
+                         <th>Nom de Marque</th>
+                         <th>Nom de Modele</th>
+                         <th>Action</th>
+                     </tr>
+                     </thead>
+                     <tbody>
+                     {% for modele in modeles %}
+                         <tr>
+                             <td>{{ modele.marque.label }}</td>
+                             <td>{{ modele.label }}</td>
+                             <td>
+                                 <a href="{{ path('edit_modele', {'id' : modele.id }) }}" class="btn btn-success btn-icon-split"><span class="text">Editer</span></a>
+                                 <a href="#" class="btn btn-danger btn-icon-split"><span class="text">Supprimer</span></a>
+                             </td>
+                         </tr>
+                     {% endfor %}
+                     </tbody>
+                 </table>
+             </div>
+         </div>
+     </div>
+
+ {% endblock %}
+

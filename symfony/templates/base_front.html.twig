@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>autoImport</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css?v=3" />
+    <link rel="stylesheet" href="/assets/css/swiper.min.css">
+    <link rel="stylesheet" href="/assets/css/swiper-style.css?v=3">
+</head>
+<body class="is-preload homepage">
+
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <div id="header-wrapper">
+                <header id="header" class="container">
+
+                    <!-- Logo -->
+                    <div id="logo">
+                        <h1><a href="/">OCABANYOLE</a></h1>
+                    </div>
+
+                    <!-- Nav -->
+                    <nav id="nav">
+                        <ul>
+                            <li>
+                                <a href="#">Services</a>
+                                <ul>
+                                    <li><a href="#">Aide à La Vente</a></li>
+                                    <li><a href="#">Aide à l'achat</a></li>
+                                    <li><a href="#">Importation véhicules</a></li>
+                                    <!--
+                                    <li>
+                                            <a href="#">Phasellus consequat</a>
+                                            <ul>
+                                                    <li><a href="#">Lorem ipsum dolor</a></li>
+                                                    <li><a href="#">Phasellus consequat</a></li>
+                                                    <li><a href="#">Magna phasellus</a></li>
+                                                    <li><a href="#">Etiam dolore nisl</a></li>
+                                            </ul>
+                                    </li>
+                                    -->
+                                    <li><a href="#">Service Administratif</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Contact</a></li>
+                            <!--
+                            <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                            <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                            <li><a href="no-sidebar.html">No Sidebar</a></li>
+                            -->
+                        </ul>
+                    </nav>
+
+                </header>
+            </div>
+
+            <!-- Banner -->
+            <div id="banner-wrapper">
+                <div id="banner" class="box container">
+                    <div class="row">
+                        <div class="col-7 col-12-medium">
+                            <h2>Bienvenu Chez</h2>
+                            <p>OCABANYOLE : Vente Véhicules d'occasion</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body -->
+            {% block body %}{% endblock %}
+
+            <!-- Footer -->
+            <div id="footer-wrapper">
+                <footer id="footer" class="container">
+                    <div class="row">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="copyright">
+                                <ul class="menu">
+                                    <li>&copy; Auto import. All rights reserved 2019</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+        <!-- Scripts -->
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/jquery.dropotron.min.js"></script>
+        <script src="/assets/js/browser.min.js"></script>
+        <script src="/assets/js/breakpoints.min.js"></script>
+        <script src="/assets/js/util.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/swiper.min.js"></script>
+        {% block javascripts %}{% endblock %}
+</body>
+</html>
