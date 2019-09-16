@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -35,7 +35,7 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
-        //return new RedirectResponse($this->urlGenerator->generate('admin_login'));
+        return new RedirectResponse($this->urlGenerator->generate('admin_login'));
         throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
 }

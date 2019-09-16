@@ -93,4 +93,19 @@ class ModeleController extends AbstractController
     }
 
 
+    /**
+     * @Route("/admin/voitures/modele/delete/{id}", name="delete_modele")
+     */
+    public function deleteMarque(Request $request, $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $modele = $entityManager->getRepository(Modele::class)->findOneBy(array('id' => $id));
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($modele);
+        $em->flush();
+        $this->addFlash('success','modèle  supprimé.');
+        return $this->redirectToRoute('liste_modele');
+    }
+
+
 }

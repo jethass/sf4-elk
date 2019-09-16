@@ -32,6 +32,16 @@
                                                  {{ form_widget(form.modele, {'attr': {'class': 'form-control form-control-user modeles'} }) }}
                                              </div>
 
+                                             <div class="col-sm-12">Options :</div>
+                                             <div class="col-sm-12">
+                                                 {{ form_errors(form.tags) }}
+                                                 {% if voiture is not null %}
+                                                     {{ form_widget(form.tags, {'attr': {'data-role': 'tagsinput', 'data-tags': voiture.tags|json_encode}}) }}
+                                                 {% else %}
+                                                     {{ form_widget(form.tags, {'attr': {'data-role': 'tagsinput'}}) }}
+                                                 {% endif %}
+                                             </div>
+
                                              <div class="col-sm-12">Prix :</div>
                                              <div class="col-sm-12">
                                                  {{ form_errors(form.prix) }}
@@ -87,39 +97,40 @@
                                              </div>
 
                                             <div class="col-sm-12">Photos :</div>
-                                             <div class="col-sm-12">
-                                               {# The Prototype to use for generating items of the Voiture.images collection #}
-                                               <div id="filesProto" data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"></div>
-                                             </div>
+                                            <div class="col-sm-12">
+                                                   {# The Prototype to use for generating items of the Voiture.images collection #}
+                                                   <div id="filesProto" data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"></div>
+                                                   {# An empty div which will later hold the generated image fields #}
+                                                     <div id="filesBox">
+                                                         {% if voiture is not null %}
+                                                             {% if(form.images|length > 0) %}
+                                                                 {% set pos = 0 %}
+                                                                 {% for img in form.images %}
+                                                                     <div class="row">
+                                                                         <div class="col col-sm-1" id="jsRemove{{ pos }}" style="">
+                                                                             <button style="font-size: 0.6rem;" type="button" class="btn btn-danger" onclick="removeFile($(this));">
+                                                                                  <i class="fa fa-times" aria-hidden="true"></i>
+                                                                             </button>
+                                                                         </div>
+                                                                         <div class='col col-sm-1'>
+                                                                            <img width='60' src='/uploads/photos/{{ img.vars.value.id }}.{{ img.vars.value.extension }}' alt='' />
+                                                                         </div>
+                                                                         <div class="col col-sm-10" id="jsPreview{{ pos }}">{{ img.vars.value.name }}</div>
 
-                                             <div class="col-sm-12">
-                                                 {# An empty div which will later hold the generated image fields #}
-                                                 <div class="row">
-                                                     <div class="col col-xs-12" id="filesBox">
-                                                         {% if(form.images|length > 0) %}
-                                                             {% set pos = 0 %}
-                                                             {% for img in form.images %}
-                                                                 <div class="row">
-                                                                     <div class="col col-xs-1" id="jsRemove{{ pos }}" style="">
-                                                                         <button type="button" class="btn btn-danger" onclick="removeFile($(this));">
-                                                                              <i class="fa fa-times" aria-hidden="true"></i>
-                                                                         </button>
+                                                                         <div style="display:none">
+                                                                             {{ form_widget(img) }}
+                                                                         </div>
                                                                      </div>
-                                                                     <div class="col col-xs-11" id="jsPreview{{ pos }}">{{ img.vars.value.name }}</div>
-
-                                                                     <div style="display:none">
-                                                                         {{ form_widget(img) }}
-                                                                     </div>
-                                                                 </div>
-                                                                 {% set pos = pos + 1 %}
-                                                             {% endfor %}
+                                                                     {% set pos = pos + 1 %}
+                                                                 {% endfor %}
+                                                             {% endif %}
                                                          {% endif %}
                                                      </div>
-                                                 </div>
-                                             </div>
+                                            </div>
 
 
-                                             <br/>
+                                         <div class="col-sm-3">
+                                             </br>
 
                                          {% if voiture is not null %}
                                              <input type="submit" value="Modifier" class="btn btn-primary btn-user btn-block"/>
@@ -128,13 +139,15 @@
                                          {% endif %}
 
                                          {{ form_end(form) }}
-                 </div>
+                                         </div>
+
          </div>
      </div>
      {% block javascripts %}
+
          <script>
              var fileCount = '{{ form.images|length }}';
-             var removeButton = "<button type='button' class='btn btn-danger btn-xs' onclick='removeFile($(this));'><i class='fa fa-times' aria-hidden='true'></i></button>";
+             var removeButton = "<button type='button' style='font-size: 0.6rem;' class='btn btn-danger btn-xs' onclick='removeFile($(this));'><i class='fa fa-times' aria-hidden='true'></i></button>";
 
              function removeFile(ob)
              {
@@ -151,14 +164,18 @@
                  newWidget = "<div style='display:none'>" + newWidget + "</div>";
 
                  hideStuff = "";
-                 hideStuff += "<div class='col col-xs-1' id='jsRemove" + fileCount + "' style='display: none;'>";
+                 hideStuff += "<div class='col col-sm-1' id='jsRemove" + fileCount + "' style='display: none;'>";
                  hideStuff += removeButton;
                  hideStuff += "</div>";
 
-                 hideStuff += "<div class='col col-xs-11' id='jsPreview" + fileCount + "'>";
+                 hideStuff += "<div class='col col-sm-1'>";
+                 hideStuff += "<img width='60' style='display:none' id='jsPreviewImage"+fileCount+"' src='' alt='' />";
                  hideStuff += "</div>";
 
-                 hideStuff += "<div class='col col-xs-12'>";
+                 hideStuff += "<div class='col col-sm-10' id='jsPreview" + fileCount + "'>";
+                 hideStuff += "</div>";
+
+                 hideStuff += "<div class='col col-sm-12'>";
                  hideStuff += "<button type='button' id='jsBtnUpload" + fileCount + "' class='btn btn-warning'>";
                  hideStuff += "<i class='fa fa-plus'></i> {{ 'photo' | trans }}";
                  hideStuff += "</button>";
@@ -175,6 +192,18 @@
                  $('#app_voiture_images_' + fileCount + '_file').on('change', function() {
                      // Show its name
                      fileName = $(this).prop('files')[0].name;
+
+                     //affichage image
+                     var reader = new FileReader();
+                     reader.onload = function (e) {
+                         $("#jsPreviewImage"+ fileCount).attr('src', e.target.result).show();
+                     };
+
+                     reader.readAsDataURL($(this).prop('files')[0]);
+                     //fin
+
+
+
                      $("#jsPreview" + fileCount).append(fileName);
                      // Hide the add file button
                      $("#jsBtnUpload" + fileCount).hide();
@@ -186,12 +215,13 @@
                  });
              }
 
-             $(document).ready(function(){
+             $("document").ready(function(){
                  createAddFile(fileCount);
                  fileCount++;
              });
 
          </script>
+
      {% endblock %}
 
  {% endblock %}

@@ -5,6 +5,8 @@ use App\Entity\Voiture;
 use App\Entity\Marque;
 use App\Entity\Modele;
 use App\Entity\Image;
+use App\Entity\Tag;
+use App\Form\Type\TagsInputType;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -36,6 +38,7 @@ class VoitureType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $myEntity = $builder->getForm()->getData();
         $builder
             ->add('marque', EntityType::class,
                 array(
@@ -53,13 +56,36 @@ class VoitureType extends AbstractType
                     'expanded' => false
                 )
             )
+            /*->add('tags',EntityType::class, array(
+                'attr'=>array('class'=>"tags"),
+                'label'=>'Options',
+                'choice_value' => function (Tag $tag = null) {
+                                        return $tag ? $tag->getName() : '';
+                 },
+                'class' => Tag::class,
+                'choice_label' => 'name',
+                'expanded' => false,
+                'multiple'=>true
+            ))*/
+            /*->add('tags', EntityType::class, [
+                'label'=>'options',
+                'choice_value' => function (Tag $tag = null) {
+                    return $tag ? $tag->getName() : '';
+                },
+                'class' => Tag::class,
+                'choice_label' => 'name',
+                'multiple'=>true
+            ])*/
+            ->add('tags', TagsInputType::class, [
+                'label' => 'Options',
+                'required' => false,
+            ])
             ->add('prix', TextType::class)
             ->add('kilometrage', TextType::class)
             ->add('dateCirculation', DateType::class, array(
                 'widget' => 'single_text',
                 'html5' => false,
             ))
-
             ->add('boiteVitesse', ChoiceType::class, array(
                     'choices'  => array(
                         'Manuelle' => 'Manuelle',
@@ -72,13 +98,11 @@ class VoitureType extends AbstractType
                         'Essence' => 'Essence',
                         'Diesel' => 'Diesel',
                         'GPL' => 'GPL',
-                        'Eléctrique' => 'Eléctrique',
+                        'Eléctrique' => 'Electrique',
                     )
                 )
             )
-
             ->add('puissanceFiscal', TextType::class)
-
             ->add('couleur', ChoiceType::class, array(
                     'choices'  => array(
                         'Blanc' => 'Blanc',

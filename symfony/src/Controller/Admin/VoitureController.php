@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Admin;
 
+use App\Entity\Image;
 use App\Entity\Voiture;
 use App\Entity\Marque;
 use App\Entity\Modele;
@@ -36,6 +37,7 @@ class VoitureController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //dump($form->getData());die;
             $em =  $this->getDoctrine()->getManager();
             $em->persist($voiture);
             $em->flush();
@@ -80,4 +82,20 @@ class VoitureController extends AbstractController
         $voitures = $repo->findAll();
         return $this->render('Admin/listeVoiture.html.twig', ['voitures' => $voitures]);
     }
+
+    /**
+     * @Route("/admin/voitures/delete/{id}", name="delete_voiture")
+     */
+    public function deleteMarque(Request $request, $id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $voiture = $entityManager->getRepository(Voiture::class)->findOneBy(array('id' => $id));
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($voiture);
+        $em->flush();
+        $this->addFlash('success','Voiture  supprimé.');
+        return $this->redirectToRoute('liste_voiture');
+    }
+
+
 }

@@ -24,13 +24,14 @@
                      {{ form_widget(form.label, {'attr': {'class': 'form-control form-control-user'} }) }}
                  </div>
 
-                 <br/>
-
-                 {% if id is not null %}
-                     <input type="submit" value="Modifier" class="btn btn-primary btn-user btn-block"/>
-                 {% else %}
-                     <input type="submit" value="Ajouter" class="btn btn-primary btn-user btn-block"/>
-                 {% endif %}
+                 <div class="col-sm-8">
+                     </br>
+                     {% if id is not null %}
+                         <input type="submit" value="Modifier" class="btn btn-primary btn-user btn-block"/>
+                     {% else %}
+                         <input type="submit" value="Ajouter" class="btn btn-primary btn-user btn-block"/>
+                     {% endif %}
+                 </div>
 
                  {{ form_end(form) }}
              </div>

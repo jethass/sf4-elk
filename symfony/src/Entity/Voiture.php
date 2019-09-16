@@ -123,11 +123,17 @@ class Voiture
     private $images;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", cascade={"persist"})
+     */
+    private $tags;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
 
         $this->setDateCreated(new \DateTime());
 
@@ -339,5 +345,40 @@ class Voiture
     public function getImages()
     {
         return $this->images;
+    }
+
+
+    /**
+     * Add tag
+     *
+     * @param \App\Entity\Tag $tag
+     *
+     * @return Tag
+     */
+    public function addTag(\App\Entity\Tag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \App\Entity\Tag $tag
+     */
+    public function removeTag(\App\Entity\Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }

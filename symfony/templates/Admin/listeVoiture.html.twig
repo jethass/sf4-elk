@@ -31,7 +31,7 @@
                              <td>{{ voiture.prix }}€</td>
                              <td>
                                  <a href="{{ path('edit_voiture', {'id' : voiture.id }) }}" class="btn btn-success btn-icon-split"><span class="text">Editer</span></a>
-                                 <a href="#" class="btn btn-danger btn-icon-split"><span class="text">Supprimer</span></a>
+                                 <a href="{{ path('delete_voiture', {'id' : voiture.id }) }}" class="btn btn-danger btn-icon-split"><span class="text">Supprimer</span></a>
                              </td>
                          </tr>
                      {% endfor %}
