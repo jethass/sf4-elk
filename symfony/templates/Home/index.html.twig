@@ -1,46 +1,59 @@
 {% extends 'base_front.html.twig' %}
- {% block body %}
- <div id="features-wrapper">
-         <div class="container">
-                 <div class="row">
-                        {% for voiture in voitures %}
-                                 <div class="col-4 col-12-medium">
+{% block body %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/assets/front/css/swiper.min.css">
+    {% endblock %}
 
-                                         <!-- Box -->
-                                         <section class="box feature">
+    <section class="ftco-section">
+        <div class="container-fluid px-4">
+            <div class="row justify-content-center">
+                <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+                    <!-- <span class="subheading">What we offer</span>-->
+                    <h2 class="mb-2">Voitures sélectionnées Pour vous :</h2>
+                </div>
+            </div>
+            <div class="row">
 
-                                                 <!-- Swiper -->
-                                                 <div class="swiper-container">
-                                                     <div class="swiper-wrapper">
-                                                         {% for image in voiture.images %}
-                                                         <div class="swiper-slide">
-                                                             <img  src="/uploads/photos/{{ image.id }}.{{ image.extension }}" alt="" />
-                                                         </div>
-                                                         {% endfor %}
-                                                     </div>
-                                                     <!-- Add Pagination -->
-                                                     <div class="swiper-pagination"></div>
-                                                 </div>
+                {% for key, voiture in voitures %}
+                    {% if key < 3 %}
+                        <div class="col-md-4">
+                            <div class="car-wrap ftco-animate">
+                                <div class="img d-flex align-items-end swiper-container">
 
-                                                 <div class="inner">
-                                                         <header>
-                                                                 <h2>{{ voiture.marque.label }}</h2>
-                                                                 <p>{{ voiture.modele.label }}</p>
-                                                         </header>
-                                                         <p>Prix : {{ voiture.prix }}</p>
-                                                         <p>Année : {{ voiture.dateCirculation|date('m/d/Y') }}</p>
-                                                         <p>Kilometrage : {{ voiture.kilometrage }}km</p>
+                                        <div class="swiper-wrapper">
+                                            {% for image in voiture.images %}
+                                                <div class="swiper-slide">
+                                                    <img  src="/uploads/photos/{{ image.id }}.{{ image.extension }}" alt="" />
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <!-- Add Pagination -->
+                                        <div class="swiper-pagination"></div>
 
-                                                 </div>
-                                         </section>
 
-                                 </div>
-                        {% endfor %}
-                 </div>
-         </div>
- </div>
+                                    <div class="price-wrap d-flex">
+                                        <span class="rate">{{ voiture.prix|price }}</span>
+                                    </div>
+                                </div>
+                                <div class="text p-4 text-center">
+                                    <h2 class="mb-0"><a href="#">{{ voiture.modele.label }}</a></h2>
+                                    <span>{{ voiture.marque.label }}</span>
+                                    <p class="d-flex mb-0 d-block">
+                                        <a href="#" class="btn btn-black btn-outline-black mr-1">Réserver</a>
+                                        <a href="#" class="btn btn-black btn-outline-black ml-1">Detail</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
 
 {% block javascripts %}
+    <script src="/assets/front/js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             pagination: {

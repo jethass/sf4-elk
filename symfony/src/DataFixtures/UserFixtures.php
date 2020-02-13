@@ -22,11 +22,5 @@ class UserFixtures extends Fixture
          $user1->setRoles(array('ROLE_ADMIN'));
          $manager->persist($user1);
          $manager->flush();
-
-        $user2 = new User();
-        $user2->setEmail('user-test@hotmail.fr');
-        $user2->setPassword($this->passwordEncoder->encodePassword($user2,'user'));
-        $manager->persist($user2);
-        $manager->flush();
     }
 }

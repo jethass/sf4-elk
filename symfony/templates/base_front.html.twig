@@ -2,104 +2,281 @@
 <html>
 <head>
     <title>autoImport</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/assets/css/main.css?v=3" />
-    <link rel="stylesheet" href="/assets/css/swiper.min.css">
-    <link rel="stylesheet" href="/assets/css/swiper-style.css?v=3">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/front/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/front/css/animate.css">
+
+    <link rel="stylesheet" href="/assets/front/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/front/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/front/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/assets/front/css/aos.css">
+
+    <link rel="stylesheet" href="/assets/front/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/assets/front/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/assets/front/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="/assets/front/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/front/css/icomoon.css">
+    <link rel="stylesheet" href="/assets/front/css/style.css">
+
+    {% block stylesheets %} {% endblock %}
 </head>
-<body class="is-preload homepage">
+<body>
+        <!-- nav -->
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Occa<span>Banyol</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
 
-        <div id="page-wrapper">
-
-            <!-- Header -->
-            <div id="header-wrapper">
-                <header id="header" class="container">
-
-                    <!-- Logo -->
-                    <div id="logo">
-                        <h1><a href="/">OCABANYOLE</a></h1>
-                    </div>
-
-                    <!-- Nav -->
-                    <nav id="nav">
-                        <ul>
-                            <li>
-                                <a href="#">Services</a>
-                                <ul>
-                                    <li><a href="#">Aide à La Vente</a></li>
-                                    <li><a href="#">Aide à l'achat</a></li>
-                                    <li><a href="#">Importation véhicules</a></li>
-                                    <!--
-                                    <li>
-                                            <a href="#">Phasellus consequat</a>
-                                            <ul>
-                                                    <li><a href="#">Lorem ipsum dolor</a></li>
-                                                    <li><a href="#">Phasellus consequat</a></li>
-                                                    <li><a href="#">Magna phasellus</a></li>
-                                                    <li><a href="#">Etiam dolore nisl</a></li>
-                                            </ul>
-                                    </li>
-                                    -->
-                                    <li><a href="#">Service Administratif</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Contact</a></li>
-                            <!--
-                            <li><a href="left-sidebar.html">Left Sidebar</a></li>
-                            <li><a href="right-sidebar.html">Right Sidebar</a></li>
-                            <li><a href="no-sidebar.html">No Sidebar</a></li>
-                            -->
-                        </ul>
-                    </nav>
-
-                </header>
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="#" class="nav-link">Nos Occasions</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Nos Services</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+        <!-- END nav -->
 
-            <!-- Banner -->
-            <div id="banner-wrapper">
-                <div id="banner" class="box container">
-                    <div class="row">
-                        <div class="col-7 col-12-medium">
-                            <h2>Bienvenu Chez</h2>
-                            <p>OCABANYOLE : Vente Véhicules d'occasion</p>
+        <div class="hero-wrap" style="background-image: url('/assets/front/images/bg_home2.jpg');" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text justify-content-start align-items-center">
+                    <div class="col-lg-12 col-md-12 ftco-animate d-flex align-items-end">
+                        <div class="text">
+                            <h1 class="mb-12">Dispo
+                                <span>Pour vous aidez à </span>
+                                <span>acheter votre voiture au meilleur prix!</span>
+                            </h1>
                         </div>
+                    </div>
+            </div>
+        </div>
 
 
+        <section class=" ftco-section services-section ftco-no-pt ftco-no-pb">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+                        <br/>
+                        <!--<span class="subheading">Services</span>-->
+                        <h2 class="mb-2">Occa presentation</h2>
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services">
+                            <div class="media-body py-md-4">
+                                <div class="d-flex mb-3 align-items-center">
+                                    <div class="icon"><span class="flaticon-route"></span></div>
+                                    <h3 class="heading mb-0 pl-3">Qui ?</h3>
+                                </div>
+                                <p>Nous sommes courtiers en accompagnement à l'achat de véhicules importés de l’Union Européenne.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services">
+                            <div class="media-body py-md-4">
+                                <div class="d-flex mb-3 align-items-center">
+                                    <div class="icon"><span class="flaticon-online-booking"></span></div>
+                                    <h3 class="heading mb-0 pl-3">Quoi ?</h3>
+                                </div>
+                                <p>L'objectif : Démocratiser l'aquisition d'un véhicule « Premium » en vous facilitant les étapes d'achat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services">
+                            <div class="media-body py-md-4">
+                                <div class="d-flex mb-3 align-items-center">
+                                    <div class="icon"><span class="flaticon-customer-support"></span></div>
+                                    <h3 class="heading mb-0 pl-3">Comment ?</h3>
+                                </div>
+                                <p>Nous travaillons avec plusieurs Partenaires : Concessionnaires et Multi-marques.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Body -->
-            {% block body %}{% endblock %}
+        {% block body %}{% endblock %}
 
-            <!-- Footer -->
-            <div id="footer-wrapper">
-                <footer id="footer" class="container">
-                    <div class="row">
-
+        <section class="ftco-section services-section img" style="background-image: url(/assets/front/images/bg_2.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                        <span class="subheading">Le process d'accompagnement à l'achat de OccaBanyol</span>
+                        <h2 class="mb-3">COMMENT ÇA MARCHE ?</h2>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div id="copyright">
-                                <ul class="menu">
-                                    <li>&copy; Auto import. All rights reserved 2019</li>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services services-2">
+                            <div class="media-body py-md-4 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-select"></span></div>
+                                <h3>1</h3>
+                                <p>CHOIX, SELECTION ET VERIFICATION</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services services-2">
+                            <div class="media-body py-md-4 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-online-booking"></span></div>
+                                <h3>2</h3>
+                                <p>CONTRAT ET REGLEMENT</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services services-2">
+                            <div class="media-body py-md-4 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car-seat"></span></div>
+                                <h3>3</h3>
+                                <p>LOGISTIQUE ET LIVRAISON</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ftco-section testimony-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <span class="subheading">Témoinages</span>
+                        <h2 class="mb-3">Nos Clients</h2>
+                    </div>
+                </div>
+                <div class="row ftco-animate">
+                    <div class="col-md-12">
+                        <div class="carousel-testimony owl-carousel ftco-owl">
+                            <div class="item">
+                                <div class="testimony-wrap text-center py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(/assets/front/images/person_1.jpg)">
+                                    </div>
+                                    <div class="text pt-4">
+                                        <p class="mb-4">Super service!, très content de prestation. </p>
+                                        <p class="name">Vincent</p>
+                                        <span class="position">Audi A3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap text-center py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(/assets/front/images/person_2.jpg)">
+                                    </div>
+                                    <div class="text pt-4">
+                                        <p class="mb-4">Très rapide la démarche, l'accomapgnement sûr et correcte.</p>
+                                        <p class="name">Stéphane</p>
+                                        <span class="position">Mercedes Class A</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap text-center py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(/assets/front/images/person_3.jpg)">
+                                    </div>
+                                    <div class="text pt-4">
+                                        <p class="mb-4">J'ai trouvé la bonne opportinuté avec OccaBanyole , vraiment sympa!</p>
+                                        <p class="name">Jéremy</p>
+                                        <span class="position">BMW Serie 1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="ftco-footer ftco-bg-dark ftco-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-3">
+                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-3 ml-md-5">
+                            <h2 class="ftco-heading-2">Information</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-2 d-block">Contact</a></li>
+                                <li><a href="#" class="py-2 d-block">Nos Services</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-3">
+                            <h2 class="ftco-heading-2">Une Questions ?</h2>
+                            <div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">162 Rue de versailles 78150, Le Chesnay</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+33 7 53 10 40 13</span></a></li>
+                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">contact@occabanyole.com</span></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </footer>
-            </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
 
-        </div>
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | OccBanyole
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <!-- loader -->
+        <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+        <script src="/assets/front/js/jquery.min.js"></script>
+        <script src="/assets/front/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="/assets/front/js/popper.min.js"></script>
+        <script src="/assets/front/js/bootstrap.min.js"></script>
+        <script src="/assets/front/js/jquery.easing.1.3.js"></script>
+        <script src="/assets/front/js/jquery.waypoints.min.js"></script>
+        <script src="/assets/front/js/jquery.stellar.min.js"></script>
+        <script src="/assets/front/js/owl.carousel.min.js"></script>
+        <script src="/assets/front/js/jquery.magnific-popup.min.js"></script>
+        <script src="/assets/front/js/aos.js"></script>
+        <script src="/assets/front/js/jquery.animateNumber.min.js"></script>
+        <script src="/assets/front/js/bootstrap-datepicker.js"></script>
+        <script src="/assets/front/js/jquery.timepicker.min.js"></script>
+        <script src="/assets/front/js/scrollax.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+        <script src="/assets/front/js/google-map.js"></script>
+
+        <script src="/assets/front/js/main.js"></script>
+
+
         <!-- Scripts -->
-        <script src="/assets/js/jquery.min.js"></script>
-        <script src="/assets/js/jquery.dropotron.min.js"></script>
-        <script src="/assets/js/browser.min.js"></script>
-        <script src="/assets/js/breakpoints.min.js"></script>
-        <script src="/assets/js/util.js"></script>
-        <script src="/assets/js/main.js"></script>
-        <script src="/assets/js/swiper.min.js"></script>
         {% block javascripts %}{% endblock %}
 </body>
 </html>

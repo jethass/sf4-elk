@@ -21,7 +21,7 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface
     }
 
     public function handle(Request $request, AccessDeniedException $accessDeniedException)
-    {$this->session->ge
+    {
         //$content = "accès non autorisé";
         $this->session->getFlashBag()->add('alert', 'acèes non autorisé.');
         $route = $this->router->generate('admin_login');

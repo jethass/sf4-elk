@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -18,20 +18,23 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private $password;
+
+    /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
+
 
     /**
      * @ORM\Column(type="array")
      */
     private $roles = [];
 
-    /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
-     */
-    private $password;
+
 
     public function getId(): ?int
     {
@@ -100,7 +103,9 @@ class User implements UserInterface
     public function getSalt()
     {
         // not needed when using the "bcrypt" algorithm in security.yaml
+        return null;
     }
+
 
     /**
      * @see UserInterface
@@ -109,5 +114,21 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function serialize()
+    {
+         return serialize(
+             [
+                 $this->id,
+                 $this->email,
+                 $this->password
+             ]
+         );
+    }
+
+    public function unserialize($serialized)
+    {
+        list($this->id,$this->email,$this->password) = unserialize($serialized);
     }
 }

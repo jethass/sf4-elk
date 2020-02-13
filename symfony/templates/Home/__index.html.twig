@@ -1,0 +1,81 @@
+{% extends 'base_front.html.twig' %}
+ {% block body %}
+ <div class="box-explication">
+     <div class="box-explication-text">
+         <h2>Qui ?</h2><br>
+         <h3>OCABANYOLE… Simple comme un rencard !</h3><br>
+         Nous sommes la pour vous accompagner pour l'achat de véhicules importés de l’Union Européenne.<br>
+     </div>
+     <div class="box-explication-text"><h2>Quoi ?</h2><br>
+         <h3>Le Premium pour tous au meilleur prix&nbsp;!</h3><br>
+         L'objectif : Démocratiser l'aquisition d'un véhicule «&nbsp;Premium&nbsp;» en vous facilitant les étapes d'achat.<br>
+     </div>
+     <div class="clear"></div>
+ </div>
+ <div id="features-wrapper">
+         <div class="container">
+             <div class="row">
+                 <div class="col-12">
+                     <div class="home-titlepage">Liste des Voitures selectionnées pour vous :</div>
+                 </div>
+             </div>
+             <div class="row">
+                    {% for voiture in voitures %}
+                             <div class="col-4 col-12-medium">
+
+                                     <!-- Box -->
+                                     <section class="box feature">
+
+                                             <!-- Swiper -->
+                                             <div class="swiper-container">
+                                                 <div class="swiper-wrapper">
+                                                     {% for image in voiture.images %}
+                                                     <div class="swiper-slide">
+                                                         <img  src="/uploads/photos/{{ image.id }}.{{ image.extension }}" alt="" />
+                                                     </div>
+                                                     {% endfor %}
+                                                 </div>
+                                                 <!-- Add Pagination -->
+                                                 <div class="swiper-pagination"></div>
+                                             </div>
+
+                                             <div class="inner">
+
+                                                     <div class="home-voiture-name">
+                                                         <b>{{ voiture.marque.label }}</b> <span>{{ voiture.modele.label }}</span>
+                                                     </div>
+                                                     <div class="home-voiture-options">
+                                                        <ul>
+                                                             {% for tag in voiture.tags %}
+                                                              <li>
+                                                               {{ tag.name }}
+                                                              </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                        <div class="clear"></div>
+                                                     </div>
+
+                                                 <p><b>Prix : {{ voiture.prix|price }}</b></p>
+                                                     <p>Année : {{ voiture.dateCirculation|date('m/d/Y') }}</p>
+                                                     <p>Kilometrage : {{ voiture.kilometrage }}km</p>
+
+                                             </div>
+                                     </section>
+
+                             </div>
+                    {% endfor %}
+             </div>
+         </div>
+ </div>
+
+{% block javascripts %}
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+{% endblock %}
+
+{% endblock %}

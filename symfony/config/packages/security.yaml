@@ -22,6 +22,8 @@ security:
             logout:
                 path: admin_logout
                 target: admin_login
+            access_denied_handler: App\Security\AccessDeniedHandler
+            access_denied_url: /admin/login
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 

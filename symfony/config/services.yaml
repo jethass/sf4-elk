@@ -39,3 +39,5 @@ services:
         class: App\Form\EventListener\VoitureAddListener
         tags:
             - { name: kernel.event_subscriber }
+    App\Twig\AppExtension:
+      arguments: ['%locale%']

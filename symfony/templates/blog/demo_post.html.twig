@@ -1,0 +1,4 @@
+{% extends 'blog/base_blog.html.twig' %}
+{% block body %}
+    {{ include ('blog/demo_post_raw.html.twig', {'post' : post}) }}
+{% endblock %}

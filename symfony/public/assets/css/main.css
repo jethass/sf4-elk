@@ -1786,7 +1786,7 @@ input, select, textarea {
 		}
 
 			.box.feature .inner {
-				padding: 4em 2em 3em 2em;
+				padding: 2em 1em 3em 2em;
 			}
 
 			.box.feature h2 {
@@ -2053,12 +2053,12 @@ input, select, textarea {
 
 	#banner {
 		position: relative;
-		padding: 4.5em;
+		padding: 40px;
 	}
 
 		#banner h2 {
-			font-size: 3.5em;
-			margin: 0.1em 0 0.35em 0;
+            font-size: 26px;
+            margin: 0px;
 		}
 
 		#banner p {
@@ -2656,3 +2656,37 @@ input, select, textarea {
 			}
 
 	}
+
+.home-voiture-name{
+    font-size: 18px;
+}
+.home-voiture-options{overflow: hidden;}
+.home-voiture-options ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.home-voiture-options ul li:first-child{margin: 5px 5px 5px 0px }
+.home-voiture-options ul li{
+    background-color: #0a9fed;
+    display: block;
+    padding: 0px 5px;
+    color: #fff;
+    margin: 5px;
+    float: left;
+    font-size: 13px;
+    border-radius: 7px;
+}
+.clear{clear: both;}
+.home-titlepage {
+font-size: 28px;
+color: grey;
+font-weight: b;
+margin: 0px 0px 10px 0px;
+}
+.box-explication{
+    background-color: palevioletred;
+    color: #fff;
+}
+.box-explication h2,.box-explication h3 {color:#fff;}
+.box-explication-text{float: left;overflow: hidden;}

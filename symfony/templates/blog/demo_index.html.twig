@@ -1,0 +1,38 @@
+{% extends 'blog/base_blog.html.twig' %}
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+           {% for message in app.flashes('notice') %}
+             <div class="alert alert-success">{{ message }}</div>
+           {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+          <a href="{{ path('posts_add')}}" >Ajouter un Post</a>
+        </div>
+    </div>
+    <hr>
+
+    <!-- Example row of columns -->
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-10">
+                {{ include ('blog/demo_post_raw.html.twig', {'post' : post}) }}
+            </div>
+            <div class="col-md-2">
+                <div>
+                <a class="btn btn-secondary" href="{{ path('posts_view', {'id':post.id}) }}" role="button">View &raquo;</a>
+                <a class="btn btn-secondary" href="{{ path('posts_edit', {'id':post.id}) }}" role="button">Edit &raquo;</a>
+                <a class="btn btn-secondary" href="{{ path('posts_delete', {'id':post.id}) }}" role="button">delete &raquo;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <hr>
+
+
+{% endblock %}
+

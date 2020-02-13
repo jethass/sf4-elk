@@ -10,26 +10,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class HomeController extends AbstractController
 {
 
-    public function test()
-    {
-       /* $entityManager = $this->getDoctrine()->getManager();
-        $repo = $entityManager->getRepository(Product::class);
-        $prices = $repo->findAllGreaterThanPrice(50);
-        dump($prices);die;
-
-        /*$product = new Product();
-        $product->setName('Keyboard');
-        $product->setPrice(996);
-
-        // tell Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($product);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
-
-        return new Response('Saved new product with id '.$product->getId());*/
-    }
-
     /**
      * @Route("/")
      */
@@ -42,9 +22,20 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}")
+     * @Route("/nos-vehicules", name="nos_veihcules)
      */
-    public function show($id)
+    public function nosVehicules()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $repo = $entityManager->getRepository(Voiture::class);
+        $voitures = $repo->findAll();
+        return $this->render('Home/nosveihicules.html.twig', ['voitures' => $voitures]);
+    }
+
+    /**
+     * @Route("/vehicule/{id}", name="detail_vehicule)
+     */
+    public function detail($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $repo = $entityManager->getRepository(Voiture::class);
